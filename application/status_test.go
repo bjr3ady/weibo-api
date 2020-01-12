@@ -60,8 +60,8 @@ func TestShowStatusCount(t *testing.T) {
 	t.Log(result)
 }
 
-func TestShareStatus(t *testing.T) {
-	result, err := ShareStatus(TestToken, "test https://api.google.com")
+func TestPostStatus(t *testing.T) {
+	result, err := PostStatus(TestToken, "test https://api.google.com")
 	if err != nil {
 		t.Error(err)
 		return

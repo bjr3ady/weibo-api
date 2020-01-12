@@ -160,8 +160,8 @@ func ShowStatusCommentsAndRepostsCount(accessToken string, statusIDs []int) ([]d
 	return countResults, nil
 }
 
-//ShareStatus post status to the weibo
-func ShareStatus(accessToken, statusStr string) (*definitions.Status, error) {
+//PostStatus post status to the weibo
+func PostStatus(accessToken, statusStr string) (*definitions.Status, error) {
 	response, err := SimplePost(constant.BaseURI+constant.Share, map[string]string{"access_token": accessToken, "status": statusStr})
 	if err != nil {
 		return nil, err

@@ -53,7 +53,7 @@ func GetUserFollowers(accessToken string, uid, startCursorID int) (*definitions.
 }
 
 //GetFriendship query the weibo two user's friendship detail
-func GetFriendship(accessToken string, sourceID, targetID int) (*definitions.FriendsResult, error) {
+func GetFriendship(accessToken string, sourceID, targetID int) (*definitions.FriendshipDetail, error) {
 	response, err := SimpleGet(constant.BaseURI, constant.Friendship, "?access_token=", accessToken, "&source_id=", strconv.Itoa(sourceID), "&target_id=", strconv.Itoa(targetID))
 	if err != nil {
 		return nil, err
@@ -61,7 +61,7 @@ func GetFriendship(accessToken string, sourceID, targetID int) (*definitions.Fri
 	if !response.NoError {
 		return nil, errors.New(response.Error)
 	}
-	var friendship definitions.FriendsResult
+	var friendship definitions.FriendshipDetail
 	if err := json.Unmarshal(response.OriginalBytes, &friendship); err != nil {
 		return nil, err
 	}
