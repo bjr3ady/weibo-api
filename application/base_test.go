@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-var TestToken = "2.00NWIIvBvLFzICa6f98d4e26p7_QqC"
+var TestToken = ""
 
 func TestSimpleGetCountry(t *testing.T) {
 	result, err := SimpleGet(constant.BaseURI + constant.CommonGetTimezone + "?access_token=" + TestToken + "&language=zh-cn")
